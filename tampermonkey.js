@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         百度新增常见搜索
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  在百度中新增了常见搜索
 // @author       bbbyqq
 // @match        *://www.baidu.com/*
@@ -16,7 +16,7 @@
 
   let div = `
         <div style="width:1000px;position: absolute;bottom: 57px;">
-            <button 
+            <button
               style="color: #fff;
                      background-color: #1890ff;
                      border: none #1890ff;
@@ -36,7 +36,7 @@
                      border-radius: 30px;
                      margin-right: 5px;"
               id="bing_btn">必应</button>
-              <button 
+              <button
               style="color: #fff;
                      background-color: #1890ff;
                      border: none #1890ff;
@@ -56,7 +56,7 @@
                      border-radius: 30px;
                      margin-right: 5px;" 
               id="segmentfault_btn">segmentfault</button>
-              <button 
+              <button
               style="color: #fff;
                      background-color: #1890ff;
                      border: none #1890ff;
@@ -76,7 +76,7 @@
                      border-radius: 30px;
                      margin-right: 5px;" 
               id="google_btn">谷歌</button>
-              <button 
+              <button
               style="color: #fff;
                      background-color: #1890ff;
                      border: none #1890ff;
@@ -96,7 +96,7 @@
                      border-radius: 30px;
                      margin-right: 5px;" 
               id="zhihu_btn">知乎</button>
-              <button 
+              <button
               style="color: #fff;
                      background-color: #1890ff;
                      border: none #1890ff;
@@ -116,7 +116,7 @@
                      border-radius: 30px;
                      margin-right: 5px;" 
               id="toutiao_btn">头条</button>
-              <button 
+              <button
               style="color: #fff;
                      background-color: #1890ff;
                      border: none #1890ff;
@@ -156,7 +156,7 @@
                      border-radius: 30px;
                      margin-right: 5px;" 
               id="douyin_btn">抖音</button>
-              <button 
+              <button
               style="color: #fff;
                      background-color: #1890ff;
                      border: none #1890ff;
@@ -181,6 +181,7 @@
   $('#form').before(div)
 
   $('#result_logo').css('margin-top', '30px')
+  $('#lg').css('bottom', '80px')
   $('#form').css('margin-top', '30px')
   setInterval(() => {
     $('#s_tab').css('padding-top', '80px')
