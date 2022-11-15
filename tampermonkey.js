@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         百度新增常见搜索
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  在百度中新增了常见搜索
 // @author       bbbyqq
 // @match        *://www.baidu.com/*
@@ -15,7 +15,7 @@
   'use strict'
 
   let div = `
-        <div style="width:1000px;position: absolute;bottom: 57px;">
+        <div id="baidu_add_btn" style="width:1000px;position: absolute;">
             <button
               style="color: #fff;
                      background-color: #1890ff;
@@ -185,8 +185,12 @@
   $('#form').css('margin-top', '30px')
   setInterval(() => {
     $('#s_tab').css('padding-top', '80px')
-  }, 1000)
-
+    if ($('#con-at').length) {
+      $('#baidu_add_btn').css('bottom', '42px')
+    } else {
+      $('#baidu_add_btn').css('bottom', '57px')
+    }
+  }, 100)
   readyClick()
 
   function readyClick() {
