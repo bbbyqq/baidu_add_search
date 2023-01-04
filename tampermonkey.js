@@ -90,21 +90,31 @@
   })
 
   $('#result_logo').css('margin-top', '30px')
-  $('#lg').css('bottom', '80px')
   $('#form').css('margin-top', '30px')
   setInterval(() => {
-    $('#s_tab').css('padding-top', '80px')
-    if ($('#con-at').length) {
-      $('#baidu_add_btn').css('bottom', '42px')
-    } else {
-      $('#baidu_add_btn').css('bottom', '57px')
+    $('#s_tab').css('padding-top', '80px') // tab栏
+    if (!$('#content_left').length) { // 初始页
+      if ($('#con-at').length) { // 广告
+        $('#baidu_add_btn').css('bottom', '42px')
+      } else {
+        $('#baidu_add_btn').css('bottom', '100px')
+      }
+      if ($('#ent_sug').length) { // 初始页即将跳转搜索页
+        $('#baidu_add_btn').css('bottom', '57px')
+      }
+    } else { // 搜索页
+      if ($('#con-at').length) { // 广告
+        $('#baidu_add_btn').css('bottom', '42px')
+      } else {
+        $('#baidu_add_btn').css('bottom', '57px')
+      }
     }
   }, 100)
+
   readyClick()
 
   function readyClick() {
     const inputVal = $('#kw')
-
     btnList.forEach(item =>{
       $(`#${item.id}`).click(function () {
         const url = `${item.url + inputVal.val()}`
